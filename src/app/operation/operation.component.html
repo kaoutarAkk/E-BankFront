@@ -1,0 +1,65 @@
+<div class="w3ls-section contact">
+  <div class="container">
+    <div class="w3ls-title">
+      <h2 class="h3-w3l">Effectuer une nouvelle opération :</h2>
+    </div>
+    <div class="contact_wthreerow agileits-w3layouts">
+      <div class="col-md-8 col-md-offset-2 w3l_contact_form">
+        <h4>Informations de l'opération</h4>
+        <div class="row">
+          <label for="type" class="col-md-3">Type de l'opération :</label>
+          <select class="select-css" id="type" class="col-md-3" (change)="onChoose($event.target.value)">
+            <option selected disabled>Choisir opération</option>
+            <option>Versement</option>
+            <option>Recharge Téléphonique</option>
+          </select>
+        </div>
+        <hr/>
+        <form (ngSubmit)="formControl.valid && onConfirm()" [formGroup]="formControl" [hidden]="hideVers">
+          <h4>Informations du bénéficiaire</h4>
+          <!--       Versement-->
+          <input type="text" name="Numéro de compte" placeholder="Numéro de compte" formControlName="numCompte">
+          <hr/>
+          <input type="text" name="Nom du bénéficiaire" placeholder="Nom du bénéficiaire" formControlName="nomBenif">
+          <hr/>
+          <input type="text" name="Montant à créditer" placeholder="Montant à créditer" formControlName="montantVers">
+          <hr/>
+          <div class="row">
+            <label for="comptes" class="col-md-4">Depuis mon compte :</label>
+            <select id="comptes" class="col-md-4" formControlName="comptes" *ngIf="comptesUser">
+              <option *ngFor="let c of comptesUser">{{c.numCompte}}</option>
+            </select>
+          </div>
+          <hr/>
+          <input type="submit" value="Confirmer">
+        </form>
+        <!--          Recharge-->
+        <form (ngSubmit)="formControl1.valid && onConfirmRecharge()" [formGroup]="formControl1" [hidden]="hideRech">
+          <div class="row">
+            <label for="operateur" class="col-md-3">Opérateur :</label>
+            <select id="operateur" class="col-md-3" formControlName="operateur">
+              <option>IAM</option>
+              <option>Orange</option>
+              <option>INWI</option>
+            </select>
+          </div>
+          <hr/>
+          <input type="text" name="Numéro de téléphone" placeholder="Numéro de téléphone" required="" formControlName="numTel">
+          <hr/>
+          <input type="text" name="Montant de recharge" placeholder="Montant de recharge" required="" formControlName="montantRech">
+          <hr/>
+          <div class="row">
+            <label for="comptes" class="col-md-4">Depuis mon compte :</label>
+            <select class="col-md-4" formControlName="comptes" *ngIf="comptesUser">
+              <option *ngFor="let c of comptesUser">{{c.numCompte}}</option>
+            </select>
+          </div>
+          <hr/>
+          <input type="submit" value="Confirmer">
+        </form>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
