@@ -20,7 +20,7 @@ export class OperationComponent implements OnInit {
   constructor(private jsService : JsService,private router : Router,private fb:FormBuilder,private bankService : BankService) { }
 
   ngOnInit() {
-    sessionStorage.setItem("uid","1");
+    // sessionStorage.setItem("uid","1");
 
     this.jsService.load();
 

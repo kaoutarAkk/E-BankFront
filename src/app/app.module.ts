@@ -9,19 +9,36 @@ import { OpHistoryComponent } from './op-history/op-history.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
+
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { LoginAgentComponent } from './agent/login-agent/login-agent.component';
+import {EditClientComponent} from "./pages/client/edit-client/edit-client.component";
+import {AllClientComponent} from "./pages/client/all-client/all-client.component";
+import {AddClientComponent} from "./pages/client/add-client/add-client.component";
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     OperationComponent,
-    OpHistoryComponent
+    OpHistoryComponent,
+    OpHistoryComponent,
+    HomeComponent,
+    LoginComponent,
+    LoginAgentComponent,
+    AddClientComponent,
+    AllClientComponent,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

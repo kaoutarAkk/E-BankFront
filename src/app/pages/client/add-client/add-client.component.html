@@ -1,0 +1,48 @@
+<div class="w3ls-section contact">
+  <div class="container">
+    <div class="w3ls-title">
+      <h2 class="h3-w3l">Ajouter client :</h2>
+    </div>
+    <div class="contact_wthreerow agileits-w3layouts">
+      <div class="col-md-8 col-md-offset-2 w3l_contact_form">
+        <hr/>
+        <form #f="ngForm" (ngSubmit)="onSaveClient(f.value)" >
+          <h4>Informations du Client</h4>
+          <!--       Versement-->
+          <input type="text" name="nom" placeholder="nom" ngModel>
+          <hr/>
+          <input type="text" name="phone_number" placeholder="Téléphone" ngModel>
+          <hr/>
+          <input type="text" name="dateNaissance" placeholder="Date de naissance" ngModel>
+          <hr/>
+          <div class="row">
+            <h4>Informations du Login</h4>
+            <input type="text"  placeholder="Email" id="email" name="email" ngModel  [(ngModel)]="formLogin.email" >
+            <hr/>
+            <input type="password"  placeholder="Password" id="password" name="password" ngModel  [(ngModel)]="formLogin.password" >
+            <hr/>
+          </div>
+          <hr/>
+          <div class="row">
+            <h4>Informations du Compte</h4>
+            <input type="text"  placeholder="Numero de compte" id="numCompte" name="numCompte" ngModel  [(ngModel)]="formCompte.numcompte" >
+            <hr/>
+            <select  class="select-css" id="typeCOmpte" name="typeCompte" ngModel  [(ngModel)]="formCompte.typeCompte">
+              <option selected disabled> selectionner le type de compte </option>
+              <option > Compte à vue</option>
+              <option > Compte d’épargne</option>
+              <option > Compte à terme</option>
+              <option > Compte titres</option>
+            </select>
+            <hr/>
+            <input type="text"  placeholder="solde" id="solde" name="solde" ngModel  [(ngModel)]="formCompte.solde" >
+            <hr/>
+          </div>
+          <hr/>
+          <input type="submit" value="Confirmer">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
