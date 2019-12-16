@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'E-BankFront';
+  hide = false
+  constructor(){}
+
+  ngOnInit(){
+    if(sessionStorage.getItem("uid") != null)
+    { this.hide = true }
+  }
 }
