@@ -41,6 +41,6 @@ import {AddClientComponent} from "./pages/client/add-client/add-client.component
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,OpHistoryComponent]
 })
 export class AppModule { }

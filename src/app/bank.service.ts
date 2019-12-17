@@ -21,4 +21,13 @@ export class BankService {
   public getAccountsOfUser(uid){
     return this.httpClient.get(this.host+"/compte/getAllAccounts?uid="+uid)
   }
+
+  public getaccountTransactions(compte_id){
+    return this.httpClient.get(this.host+"/transaction/getaccountTransactions?compte_id="+compte_id)
+
+  }
+
+ /* public getAccountsOfUser(uid){
+    return this.httpClient.get(this.host+"/compte/getAllAccounts?uid="+uid)
+  }*/
 }
