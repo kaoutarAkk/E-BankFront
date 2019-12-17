@@ -38,6 +38,7 @@ export class AuthService {
                   this.clientService.getclientbylogin(email).subscribe(data => {
                     this.user = data;
                     sessionStorage.setItem('uid', this.user.id);
+                    sessionStorage.setItem('client','true');
                   }, err => {
                     console.log(err)
                   });
@@ -67,7 +68,7 @@ export class AuthService {
 
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('id');
+    let user = sessionStorage.getItem('uid');
     if (user != null) {
       return true;
     } else {
@@ -77,6 +78,13 @@ export class AuthService {
   isAdmin(){
     let admin = sessionStorage.getItem("admin")
     if(admin != null)
+      return true;
+    else
+      return false;
+  }
+  isClent(){
+    let client = sessionStorage.getItem("client")
+    if(client != null)
       return true;
     else
       return false;

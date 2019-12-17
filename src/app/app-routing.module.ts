@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HeaderComponent} from './header/header.component';
+
 import {OperationComponent} from "./operation/operation.component";
 import {OpHistoryComponent} from "./op-history/op-history.component";
 import {HomeComponent} from "./home/home.component";
@@ -8,17 +9,22 @@ import {LoginComponent} from "./login/login.component";
 import {LoginAgentComponent} from "./agent/login-agent/login-agent.component";
 import {AddClientComponent} from "./pages/client/add-client/add-client.component";
 import {AllClientComponent} from "./pages/client/all-client/all-client.component";
+import {AuthAdminService} from "./services/auth-admin.service";
+import {AuthGuardService} from "./services/auth-guard.service";
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home' , component: HomeComponent},
   { path: 'operation' , component: OperationComponent},
-  { path: 'historique' , component: OpHistoryComponent},
-  { path: 'home' , component: HeaderComponent},
+  { path: 'historique' , component: OpHistoryComponent ,canActivate:[AuthGuardService]},
+  { path: 'home' , component: HeaderComponent,canActivate:[AuthGuardService]},
   { path: 'login' , component: LoginComponent},
   { path: 'agent' , component: LoginAgentComponent},
-  { path: 'addClient' , component: AddClientComponent},
-  { path: 'allClient' , component: AllClientComponent},
+  { path: 'addClient' , component: AddClientComponent ,canActivate:[AuthAdminService]},
+  { path: 'allClient' , component: AllClientComponent ,canActivate:[AuthAdminService]},
+
 
 ];
 
