@@ -13,7 +13,9 @@ export class AllClientComponent implements OnInit {
   constructor(private clientService: UtilisateurService , private router: Router) { }
 
   ngOnInit() {
+
     this.clientService.getAllClients().subscribe(data => {
+
         this.clients = data
       }
       , err => {
@@ -34,7 +36,9 @@ export class AllClientComponent implements OnInit {
 
   }
 
-  onClickCompte(id: any) {
-    //Appel de page detail du compte
+  onClickCompte(uid: any) {
+    this.router.navigateByUrl("compteClient/"+uid);
+
+
   }
 }

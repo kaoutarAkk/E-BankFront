@@ -24,7 +24,7 @@
           <hr/>
           <input type="text" name="Montant à créditer" placeholder="Montant à créditer" formControlName="montantVers">
           <hr/>
-          <div class="row">
+          <div class="row" hidden>
             <label for="comptes" class="col-md-4">Depuis mon compte :</label>
             <select id="comptes" class="col-md-4" formControlName="comptes" *ngIf="comptesUser">
               <option *ngFor="let c of comptesUser">{{c.numCompte}}</option>
@@ -46,9 +46,17 @@
           <hr/>
           <input type="text" name="Numéro de téléphone" placeholder="Numéro de téléphone" required="" formControlName="numTel">
           <hr/>
-          <input type="text" name="Montant de recharge" placeholder="Montant de recharge" required="" formControlName="montantRech">
+          <p>Montant de recharge</p>
+          <div class="rd-box">
+            <input type="radio" value="10" formControlName="montantRech"> 10 DH <br>
+            <input type="radio" value="20" formControlName="montantRech"> 20 DH <br>
+            <input type="radio" value="30" formControlName="montantRech"> 30 DH <br>
+            <input type="radio" value="50" formControlName="montantRech"> 50 DH <br>
+            <input type="radio" value="100" formControlName="montantRech"> 100 DH <br>
+            <input type="radio" value="200" formControlName="montantRech"> 200 DH <br>
+          </div>
           <hr/>
-          <div class="row">
+          <div class="row" hidden>
             <label for="comptes" class="col-md-4">Depuis mon compte :</label>
             <select class="col-md-4" formControlName="comptes" *ngIf="comptesUser">
               <option *ngFor="let c of comptesUser">{{c.numCompte}}</option>

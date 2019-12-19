@@ -17,6 +17,9 @@ export class ClientService {
   public IsClient(id):Observable<boolean>{
     return this.httpClient.get<boolean>(this.host+"logins/isClient?id="+id);
   }
+  public IsAgent(id):Observable<boolean>{
+    return this.httpClient.get<boolean>(this.host+"logins/isAgent?id="+id);
+  }
 
   public getclientbylogin(email){
     return this.httpClient.get(this.host+"clients/bylogin?email="+email);

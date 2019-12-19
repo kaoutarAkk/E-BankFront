@@ -17,6 +17,9 @@ export class BankService {
   public addRecharge(compte,numT,montant,operateur){
     return this.httpClient.post(this.host+"/transaction/ajouterRecharge?compte="+compte+"&benif="+numT+"&op="+operateur+"&montant="+montant,{responseType: 'text'})
   }
+  public addRechargeWS(compte,data){
+    return this.httpClient.post(this.host+"/transaction/ajouterRechargeWS?compte="+compte,data)
+  }
 
   public getAccountsOfUser(uid){
     return this.httpClient.get(this.host+"/compte/getAllAccounts?uid="+uid)

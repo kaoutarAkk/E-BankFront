@@ -17,6 +17,7 @@ import { LoginAgentComponent } from './agent/login-agent/login-agent.component';
 import {EditClientComponent} from "./pages/client/edit-client/edit-client.component";
 import {AllClientComponent} from "./pages/client/all-client/all-client.component";
 import {AddClientComponent} from "./pages/client/add-client/add-client.component";
+import { CompteComponent } from './pages/compte/compte.component';
 
 
 
@@ -24,16 +25,15 @@ import {AddClientComponent} from "./pages/client/add-client/add-client.component
   declarations: [
     AppComponent,
     HeaderComponent,
-
     OperationComponent,
-    OpHistoryComponent,
     OpHistoryComponent,
     HomeComponent,
     LoginComponent,
     LoginAgentComponent,
     AddClientComponent,
     AllClientComponent,
-    EditClientComponent
+    EditClientComponent,
+    CompteComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +44,6 @@ import {AddClientComponent} from "./pages/client/add-client/add-client.component
 
   ],
   providers: [],
-  bootstrap: [AppComponent,OpHistoryComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

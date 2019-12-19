@@ -16,6 +16,11 @@ export class OperationComponent implements OnInit {
   comptesUser;
   hideVers=true;
   hideRech=true;
+  rechargeRequest = {
+    montant:null,
+    numero:null
+  }
+  response;
 
   constructor(private jsService : JsService,private router : Router,private fb:FormBuilder,private bankService : BankService) { }
 
@@ -26,6 +31,7 @@ export class OperationComponent implements OnInit {
 
     this.bankService.getAccountsOfUser(sessionStorage.getItem("uid")).subscribe(data=>{
       this.comptesUser = data;
+      console.log(this.comptesUser)
     });
 
     this.formControl=this.fb.group({
@@ -81,14 +87,19 @@ export class OperationComponent implements OnInit {
     let numTel = this.formControl1.get('numTel').value;
     console.log(op,compte,montant,numTel);
 
-    this.bankService.addRecharge(compte,numTel,montant,op).subscribe(data=>{
-      if(data){
-        alert("Recharge effectuée !");
-        window.location.reload();
-      }
-      else {
-        alert("Une erreur est survenue.")
-      }
+    this.rechargeRequest.montant = montant;
+    this.rechargeRequest.numero = numTel;
+
+
+    this.bankService.addRechargeWS(compte,this.rechargeRequest).subscribe(data=>{
+      this.response = data;
+        if(this.response.return){
+          alert("Recharge effectuée !");
+          window.location.reload();
+        }
+        else {
+          alert("Une erreur est survenue.")
+        }
     })
   }
 }

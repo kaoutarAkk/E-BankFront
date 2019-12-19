@@ -13,6 +13,7 @@ export class AuthService {
   pass:any;
   idLogin:any;
   isClient:boolean;
+  private idAgent: boolean;
 
 
   constructor(private http: HttpClient, private router: Router,private clientService : ClientService) {
@@ -26,9 +27,12 @@ export class AuthService {
             this.idLogin = this.login.id;
             this.email = true;
             this.clientService.IsClient(this.idLogin).subscribe(data=>{
-              this.isClient=data
+              this.isClient=data;
               console.log("isClient "+this.isClient)
             });
+            this.clientService.IsAgent(this.idLogin).subscribe(data=>{
+              this.idAgent=data;
+            })
             this.clientService.checkPassword(email, password)
               .subscribe(data => {
                 this.pass = data;
@@ -38,7 +42,9 @@ export class AuthService {
                   this.clientService.getclientbylogin(email).subscribe(data => {
                     this.user = data;
                     sessionStorage.setItem('uid', this.user.id);
+                    console.log(this.user.id)
                     sessionStorage.setItem('client','true');
+                    // this.router.navigateByUrl("/allClient")
                   }, err => {
                     console.log(err)
                   });
@@ -49,7 +55,10 @@ export class AuthService {
 
 
                 }else{
+
                     sessionStorage.setItem("admin","true");
+                    sessionStorage.setItem("uid","admin");
+
 
                   }
               }
@@ -92,7 +101,9 @@ export class AuthService {
 
   logOut() {
     sessionStorage.clear();
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl("/login").then(() => {
+      window.location.reload();
+    });
   }
 
   /*getLoggedInUser() {
