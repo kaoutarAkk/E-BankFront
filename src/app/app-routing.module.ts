@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'home' , component: HomeComponent ,canActivate:[AuthGuardService]},
   { path: 'operation' , component: OperationComponent},
   { path: 'historique' , component: OpHistoryComponent ,canActivate:[AuthGuardService]},
-  // { path: 'home' , component: HeaderComponent,canActivate:[AuthGuardService]},
   { path: 'login' , component: LoginComponent},
   { path: 'agent' , component: LoginAgentComponent},
   { path: 'addClient' , component: AddClientComponent ,canActivate:[AuthAdminService]},

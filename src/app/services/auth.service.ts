@@ -48,10 +48,10 @@ export class AuthService {
                   }, err => {
                     console.log(err)
                   });
-                  setTimeout(() => {
+                 /* setTimeout(() => {
                     this.router.navigateByUrl("/home");}, 1000);
                   setTimeout(() => {
-                    window.location.reload();}, 1500);
+                    window.location.reload();}, 1500);*/
 
 
                 }else{

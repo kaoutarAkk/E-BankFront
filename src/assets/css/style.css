@@ -439,12 +439,12 @@ a.w3_agile_vimeo:hover{
 /*-- //banner --*/
 /*-- banner --*/
 .banner {
-  /*  background:url(../images/banner.jpg)no-repeat center center;*/
-	/*-webkit-background-size: cover;*/
-	/*-moz-background-size: cover;*/
-  /*  background-size: cover;*/
-	/*position: relative;*/
-	/*min-height:700px;*/
+    background:url(../images/banner.jpg)no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+    background-size: cover;
+	position: relative;
+	min-height:700px;
 }
 .banner-textagileinfo {
     padding: 5em;

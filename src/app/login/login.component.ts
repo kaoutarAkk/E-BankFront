@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-      // this.authService.authenticate(this.email,this.password);
+      this.authService.authenticate(this.email,this.password);
       /*this.router.navigateByUrl("/home");*/
-    setTimeout(()=>{this.ok = this.authService.authenticate(this.email,this.password)},1000)
+    // setTimeout(()=>{this.ok = this.authService.authenticate(this.email,this.password)},1000)
       console.log(sessionStorage.getItem('id'))
    if(this.authService.isAdmin()){
      this.router.navigateByUrl("/allClient").then(() => {
@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
    }
    if(this.authService.isClent()){
      this.router.navigateByUrl("/home");
-
-
    }
   }
 }
