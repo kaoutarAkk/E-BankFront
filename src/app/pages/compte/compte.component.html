@@ -1,5 +1,33 @@
 <div>
-  <div class="card" style="margin: 20px;align-content: center">
+  <div class="row" style="margin-top: 30px;">
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <h2 class="py-3 text-center font-bold font-up blue-text" style="font-family: 'Comic Sans MS';color: #5bc0de"><u>Informations du compte </u></h2>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <div class="" style="margin-top: 30px; font-size: 13pt"  *ngFor="let c of compte">
+    <div class="row" >
+      <div class="col-md-4"></div>
+      <div class="col-md-2 text-center"><b><i>Num compte :</i></b></div>
+      <div class="col-md-2 text-center">{{c.numCompte}}</div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-2 text-center"><b><i>Solde :</i></b></div>
+      <div class="col-md-2 text-center">{{c.solde}}</div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-2 text-center"><b><i>Type Compte :</i></b></div>
+      <div class="col-md-2 text-center">{{c.typeCompte}}</div>
+      <div class="col-md-4"></div>
+    </div>
+
+  </div>
+  <!--<div class="card" style="margin: 20px;align-content: center">
     <table *ngFor="let c of compte">
       <tr>
         <td style="color:#1da1f2"><b><i>Num compte :</i></b></td>
@@ -17,9 +45,9 @@
 
       </tr>
     </table>
-  </div>
+  </div>-->
 
-  <table class="table">
+  <!--<table class="table">
     <thead>
     <tr>
       <th scope="col">Date de transaction</th>
@@ -32,6 +60,33 @@
       <th scope="row">{{t.dateTransaction}}</th>
       <td>{{t.type}}</td>
       <td>{{t.montant}}</td>
+    </tr>
+
+    </tbody>
+  </table>-->
+  <p></p>
+  <div class="row" style="margin-top: 30px;">
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <h2 class="py-3 text-center font-bold font-up blue-text" style="font-family: 'Comic Sans MS';color: #5bc0de"><u>Les transactions effectées</u></h2>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <table class="table table-striped" cellspacing="10px" style="background-color: #f0f0f0;font-size: 13pt; margin-left: 30px;margin-top: 50px;width: 95%">
+    <thead  class="text-center" style="font-family: 'Open Sans', sans-serif; padding-bottom: 20px;">
+
+    <tr>
+
+      <th class="col-md-3 text-center">Date de transaction</th>
+      <th class="col-md-3 text-center ">Type</th>
+      <th  class="col-md-3 text-center">Montant</th>
+    </tr>
+    </thead>
+    <tbody  style="padding: 20px">
+    <tr *ngFor="let t of transactions" >
+      <td class="col-md-3 text-center">{{t.dateTransaction}}</td>
+      <td class="col-md-3 text-center">{{t.type}}</td>
+      <td class="col-md-3 text-center">{{t.montant}}</td>
     </tr>
 
     </tbody>

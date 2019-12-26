@@ -8,10 +8,12 @@ import {AuthService} from "../services/auth.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isAdmin:any;
 
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    this.isAdmin=this.authService.isAdmin();
   }
 
   logout() {
